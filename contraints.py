@@ -8,10 +8,10 @@ class entry:
     self.out_date = out_date
 
 class out:
-  def_init_(self,outtime_min,outtime_max,area,model):
+  def_init_(self,outtime_min,outtime_max,out_area,model):
     self.outtime_min = outtime_min
     self.outtime_max = outtime_max
-    self.area = area
+    self.out_area = out_area
     self.model = model
  
 class inatelier:
