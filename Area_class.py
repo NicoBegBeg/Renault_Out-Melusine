@@ -1,3 +1,4 @@
+dictionnaire_filling = {"type1":100,"type2":200}
 
 class Area:
     
