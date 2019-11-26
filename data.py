@@ -1,13 +1,8 @@
 #Fichier contenant toutes les données du problème
 
-<<<<<<< HEAD
 from temps_vecteur import *
 from contraints import *
 from CLE_class import *
-=======
-import temps_vecteur
-import contraints
->>>>>>> a363ac97f13150644f98aa19616125dd5065648c
 
 areas=[Area("stock",500,{}),Area("transit",200,{}),Area("sortie_usine",0,{}),Area("atelier",100,{}),Area("entree/sortie_CLE",100,{})]
 
