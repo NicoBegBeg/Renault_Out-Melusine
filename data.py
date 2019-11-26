@@ -1,6 +1,6 @@
 #Fichier contenant toutes les données du problème
 
-import numpy as np
+import classes, temps_vecteur
 
-Areas={'A':1,'B':2,'C':3}
+import numpy as np
 
