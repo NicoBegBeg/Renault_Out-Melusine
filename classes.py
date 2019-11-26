@@ -10,11 +10,24 @@ class CLE:
         self.out=out
 
 class Area:
-    def __init__(self,nb_places,filling):
+    def __init__(self,name,nb_slot,filling): #filling est un dictionnaire du type : {nom de modèle, nombre de véhicule entreposés}
+        self.name=name
         self.filling=filling
+        self.nb_slot=nb_slot
+        self.filled_slot=self.nb_places_restantes()
+        
     
     def nb_places_restantes(self):
         count=0
         for i in self.filling:
             count+=self.filling[i]
-        return(self.nb_places-count)
+        return(self.nb_slot-count)
+    
+    def Add_Car(self,car_type):
+        not_here=False
+        for i in self.filling:
+            if i==car_type:
+                self.filling[i]+=1
+                _test=True
+        if Test
+    
