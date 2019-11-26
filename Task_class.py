@@ -5,4 +5,3 @@ class Task:
         self.f_area=f_area
         self.car_type=car_type
         self.time=time
-        assert self.d_area != self.f_area,"manoeuvre inutile"
