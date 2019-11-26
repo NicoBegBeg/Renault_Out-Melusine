@@ -32,9 +32,6 @@ dictionnaire_temps_vecteur["entree/sortie_CLE"]["atelier"] = 100
 dictionnaire_temps_vecteur["entree/sortie_CLE"]["sortie_usine"] = 100
 dictionnaire_temps_vecteur["entree/sortie_CLE"]["entree/sortie_CLE"] = 0
 
-for nom,val in dictionnaire_temps_vecteur.items():
-    print(nom, " ", val)
-
 # données de Mardi pour la semaine 35
 
 # dictionnaire_input["sortie_usine"]["transit"] donne le nombre de véhicules qui arrivent depuis la sortie de l'usine et qu'il stocker en transit
@@ -45,6 +42,10 @@ dictionnaire_input ={"sortie_usine":{"stock":4+11+16+3+8+2,"transit":18+25+3+7},
 # en fait je suis pas sûr de comprendre les données
 
 output = 10 + 5 + 8
+
+if __name__ == "__main__":
+    for nom,val in dictionnaire_temps_vecteur.items():
+        print(nom, " ", val)
 
 
 
