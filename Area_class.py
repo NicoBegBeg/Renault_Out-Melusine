@@ -23,6 +23,10 @@ class Area:
         return can
 
     def add_car(self,car_type,nb_car):
+
+        assert self.nb_places_restantes()>=nb_car,"Ajout interdit : Pas assez de places"
+        #Plutot des RaiseError
+
         not_here=True
         for i in self.filling:
             if i==car_type:
@@ -30,17 +34,19 @@ class Area:
                 not_here=False
         if not_here:
             self.filling[car_type]=nb_car
-        assert self.nb_places_restantes()>=0,"Ajout interdit"
-
-        #Plutot des RaiseError
 
     def remove_car(self,car_type,nb_car):
         for i in self.filling:
             if i==car_type:
-                self.filling[i]-=nb_car
-                assert self.filling[i]>=0,"Retrait interdit"
 
+                assert self.filling[i]>=nb_car,"Retrait interdit : Pas assez de véhicules de ce modele"
                 #Plutot des RaiseError
+
+                self.filling[i]-=nb_car
+
+        assert False,"Retrait interdit : Aucun véhicules de ce modele"
+        #Plutot des RaiseError
+
 
 
 
