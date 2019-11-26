@@ -11,7 +11,11 @@ class CLE:
     
     def apply_task(self,task):
         D=self.areas[task.d_area]
-        A=self.areas[task.a_area]
-        if max(D.can_remove_car(task.car_type,1),A.can_add_car(task.car_type,1)):
+        F=self.areas[task.f_area]
+        if max(D.can_remove_car(task.car_type,1),F.can_add_car(task.car_type,1)):
             D.remove_car(task.car_type,1)
-            A.add_car(task.car_type,1)
+            F.add_car(task.car_type,1)
+    
+    def affichage_remplissage(self):
+        for area_name in self.areas:
+            print(area_name,self.areas[area_name].filling)
