@@ -1,6 +1,5 @@
 #Contient les classes et méthodes utiles à la modélisation du CLE
 
-import data
 
 class CLE:
     def __init__(self,areas,temps_vecteur,entry,out):
@@ -22,11 +21,30 @@ class Area:
             count+=self.filling[i]
         return(self.nb_slot-count)
     
-    def add_Car(self,car_type,nb_car):
+    def can_add_car(self,car_type,nb_car):
+        return(nb_car<self.nb_places_restantes)
+    
+    def can_remove_car(self,car_type,nb_car):
+        can=False
+        for i in self.filling:
+            if i==car_type:
+                can=(self.filling[i]>=nb_car)
+        return can
+    
+    def add_car(self,car_type,nb_car):
         not_here=True
         for i in self.filling:
             if i==car_type:
                 self.filling[i]+=nb_car
                 not_here=False
-        if not_here
+        if not_here:
+            self.filling[car_type]=nb_car
+        assert nb_places_restantes>=0,"Ajout interdit"
+    
+    def remove_car(self,car_type,nb_car):
+        for i in self.filling:
+            if i==car_type:
+                self.filling[i]-=nb_car
+                assert self.filling[i]>=0,"Retrait interdit"
+        
     
