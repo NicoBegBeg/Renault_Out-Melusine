@@ -14,7 +14,6 @@ class Area:
         self.name=name
         self.filling=filling
         self.nb_slot=nb_slot
-        self.filled_slot=self.nb_places_restantes()
         
     
     def nb_places_restantes(self):
@@ -23,11 +22,11 @@ class Area:
             count+=self.filling[i]
         return(self.nb_slot-count)
     
-    def Add_Car(self,car_type):
-        not_here=False
+    def add_Car(self,car_type,nb_car):
+        not_here=True
         for i in self.filling:
             if i==car_type:
-                self.filling[i]+=1
-                _test=True
-        if Test
+                self.filling[i]+=nb_car
+                not_here=False
+        if not_here
     
