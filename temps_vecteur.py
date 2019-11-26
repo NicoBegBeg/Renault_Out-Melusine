@@ -2,7 +2,7 @@
 
 dictionnaire_temps_vecteur = {"stock":{},"transit":{}, "sortie_usine":{}, "atelier":{}, "entree/sortie_CLE":{}}
 
-dictionnaire_temps_vecteur["stock"]["stock"] = 0 # pas forcément num : on peut juste la changer de plance
+dictionnaire_temps_vecteur["stock"]["stock"] = 0 # pas forcément nul : on peut juste la changer de place
 dictionnaire_temps_vecteur["stock"]["transit"] = 4
 dictionnaire_temps_vecteur["stock"]["atelier"] = 6
 dictionnaire_temps_vecteur["stock"]["sortie_usine"] = 5
