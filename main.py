@@ -1,4 +1,4 @@
-import Task_class, CLE_class, Area_class, contraints, temps_vecteur, data
+from Task_class, CLE_class, Area_class, contraints, temps_vecteur, data import *
 
 #Principe : A partir des contraintes, on effectue une série de tâches pour y répondre -> chaque tâche demande un temps t
 #Sans tenir compte de limites temporelles/matérielles/humaines, on applique toutes ces tâches successives au CLE
