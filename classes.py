@@ -2,13 +2,17 @@
 
 
 class CLE:
+    
     def __init__(self,areas,temps_vecteur,entry,out):
         self.areas=areas
         self.temps_vecteur=temps_vecteur
         self.entry=entry
         self.out=out
+        
+    
 
 class Area:
+    
     def __init__(self,name,nb_slot,filling): #filling est un dictionnaire du type : {nom de modèle, nombre de véhicule entreposés}
         self.name=name
         self.filling=filling
@@ -46,5 +50,16 @@ class Area:
             if i==car_type:
                 self.filling[i]-=nb_car
                 assert self.filling[i]>=0,"Retrait interdit"
-        
+
+
+class Task:
+    
+    def __init__(self,d_area,f_area,car_type,time):
+        self.d_area=d_area
+        self.f_area=f_area
+        self.car_type=car_type
+        self.time=time
+        assert self.d_area != self.f_area,"manoeuvre inutile"
+
+
     
