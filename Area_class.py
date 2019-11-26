@@ -1,5 +1,3 @@
-filling = {"nissan":0,"type2":0}
-
 class Area:
     
     def __init__(self,name,nb_slot,filling): #filling est un dictionnaire du type : {nom de modèle, nombre de véhicule entreposés}
