@@ -1,4 +1,4 @@
-filling = {"nissan":100,"type2":200}
+filling = {"nissan":0,"type2":0}
 
 class Area:
     
