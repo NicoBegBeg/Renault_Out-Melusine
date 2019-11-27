@@ -19,7 +19,7 @@ if __name__ == "__main__":
     out_ateliers=out_ateliers_1
     
     for constraint in entries:
-        
+        CLE.apply_task(CLE.give_take_in_order('sortie_usine',constraint.model))
     
-    give_take_in_order(self,d_area,entry_order)
+    CLE.affichage_remplissage
     
