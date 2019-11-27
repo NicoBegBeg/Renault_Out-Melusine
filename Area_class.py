@@ -36,15 +36,15 @@ class Area:
             self.filling[car_type]=nb_car
 
     def remove_car(self,car_type,nb_car):
+        done=False
         for i in self.filling:
             if i==car_type:
-
-                assert self.filling[i]>=nb_car,"Retrait interdit : Pas assez de véhicules de ce modele"
+                assert self.filling[i]>=nb_car,"Retrait interdit : Pas assez de véhicules de ce modèle"
                 #Plutot des RaiseError
-
+                done=True
                 self.filling[i]-=nb_car
 
-        assert False,"Retrait interdit : Aucun véhicules de ce modele"
+        assert done,"Retrait interdit : Aucun véhicules de ce modèle"
         #Plutot des RaiseError
 
 

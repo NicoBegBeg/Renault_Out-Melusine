@@ -13,13 +13,23 @@ from data import *
 if __name__ == "__main__":
     
     CLE=CLE_ESSAI_1
+    
     entries=entries_1
     outs=outs_1
+    
     in_ateliers=in_ateliers_1
     out_ateliers=out_ateliers_1
     
+    #régime de fonctionnement
+    
     for constraint in entries:
-        CLE.apply_task(CLE.give_take_in_order('sortie_usine',constraint.model))
+        CLE.apply_task(CLE.give_take_in_order(constraint.entry_area,constraint.model))
+        
+    for constraint in outs:
+        CLE.apply_task(CLE.give_take_out_order(constraint.out_area,constraint.model))
+        
+    # for constraint in in_atelier:
+    #     CLE.apply_task(CLE.give_take_out_order(constraint.out_area,constraint.model))
     
     CLE.affichage_remplissage()
     

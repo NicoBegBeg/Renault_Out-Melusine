@@ -15,6 +15,11 @@ class CLE:
         for area in self.areas:
             if self.areas[area].can_add_car(car_type,1):
                 return(Task(d_area,area,car_type,'time'))
+                
+    def give_take_out_order(self,f_area,car_type): #génère naïvement la task pour sortir une voiture du stockage
+        for area in self.areas:
+            if self.areas[area].can_remove_car(car_type,1):
+                return(Task(area,f_area,car_type,'time'))
         
 
     def apply_task(self,task):
@@ -27,10 +32,9 @@ class CLE:
             
             if D.name not in self.creation_point:
                 D.remove_car(task.car_type,1)
-                print('done1')
             if D.name not in self.expedition_point:
                 F.add_car(task.car_type,1)
-                print('done2')
+
 
     def affichage_remplissage(self):
         for area_name in self.areas:
