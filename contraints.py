@@ -12,14 +12,14 @@ class out:
         self.out_area = out_area
         self.model = model
 
-class inatelier:
+class in_atelier:
     def __init__(self,entry_time,area_in,area_atelier,model):
         self.entry_time = entry_time
         self.area_in = area_in
         self.area_atelier = area_atelier
         self.model = model
 
-class outatelier:
+class out_atelier:
     def __init__(self,out_time,area_atelier,area_out,model):
         self.out_time = out_time
         self.area_atelier = area_atelier
