@@ -21,5 +21,5 @@ if __name__ == "__main__":
     for constraint in entries:
         CLE.apply_task(CLE.give_take_in_order('sortie_usine',constraint.model))
     
-    CLE.affichage_remplissage
+    CLE.affichage_remplissage()
     
