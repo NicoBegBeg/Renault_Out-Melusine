@@ -11,4 +11,15 @@ from data import *
 
 
 if __name__ == "__main__":
-    None
+    
+    CLE=CLE_ESSAI_1
+    entries=entries_1
+    outs=outs_1
+    in_ateliers=in_ateliers_1
+    out_ateliers=out_ateliers_1
+    
+    for constraint in entries:
+        
+    
+    give_take_in_order(self,d_area,entry_order)
+    

@@ -8,6 +8,12 @@ class CLE:
         self.temps_vecteur=temps_vecteur
         self.entry=entry
         self.out=out
+    
+    def give_take_in_order(self,d_area,entry_order): #génère naïvement la task pour affecter une voiture au stockage
+        for area in self.areas:
+            if area.can_take_car(car_type,1):
+                return(Task(d_area,area,car_type,'time'))
+        
 
     def apply_task(self,task):
         D=self.areas[task.d_area]
