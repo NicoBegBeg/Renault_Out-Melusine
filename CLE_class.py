@@ -22,17 +22,7 @@ class CLE:
         for area in self.areas:
             if self.areas[area].can_remove_car(car_type,1):
                 return(Task(area,f_area,car_type,'time'))
-    
-    def give_take_in_atelier_order(self,d_area,car_type): #génère naïvement la task pour affecter une voiture au stockage
-        for area in self.areas:
-            if self.areas[area].can_add_car(car_type,1):
-                return(Task(d_area,area,car_type,'time'))
-                
-    
-    def give_take_out_atelier_order(self,f_area,car_type): #génère naïvement la task pour sortir une voiture du stockage
-        for area in self.areas:
-            if self.areas[area].can_remove_car(car_type,1):
-                return(Task(area,f_area,car_type,'time'))
+
 
     def apply_task(self,task):
         D=self.areas[task.d_area]

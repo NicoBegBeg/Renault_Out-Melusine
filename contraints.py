@@ -20,7 +20,7 @@ class in_atelier:
         self.model = model
 
 class out_atelier:
-    def __init__(self,out_time,area_atelier,area_out,model):
+    def __init__(self,out_time,area_out,area_atelier,model):
         self.out_time = out_time
         self.area_atelier = area_atelier
         self.area_out = area_out
