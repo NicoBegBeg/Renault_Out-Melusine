@@ -32,4 +32,5 @@ if __name__ == "__main__":
     #     CLE.apply_task(CLE.give_take_out_order(constraint.out_area,constraint.model))
     
     CLE.affichage_remplissage()
+    print(CLE.working_time)
     

@@ -1,6 +1,5 @@
 #Fichier contenant toutes les données du problème
 
-from temps_vecteur import *
 from contraints import *
 from CLE_class import *
 
