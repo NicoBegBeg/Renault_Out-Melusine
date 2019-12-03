@@ -30,7 +30,7 @@ class CLE:
 
         # Plutot mettre des raiseError
 
-        if max(D.can_remove_car(task.car_type,1),F.can_add_car(task.car_type,1)):
+        if D.can_remove_car(task.car_type,1) and F.can_add_car(task.car_type,1):
             
             self.working_time+=dictionnaire_temps_vecteur[task.d_area][task.f_area]
             
