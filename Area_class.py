@@ -16,11 +16,10 @@ class Area:
         return(nb_car<self.nb_places_restantes())
 
     def can_remove_car(self,car_type,nb_car):
-        can=False
         for i in self.filling:
             if i==car_type:
-                can=(self.filling[i]>=nb_car)
-        return can
+                return (self.filling[i]>=nb_car)
+        return False
 
     def add_car(self,car_type,nb_car):
 
@@ -46,9 +45,3 @@ class Area:
 
         assert done,"Retrait interdit : Aucun véhicules de ce modèle"
         #Plutot des RaiseError
-
-
-
-
-
-
