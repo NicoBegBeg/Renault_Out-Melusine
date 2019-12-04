@@ -20,19 +20,12 @@ if __name__ == "__main__":
     in_ateliers=in_ateliers_1
     out_ateliers=out_ateliers_1
     
-    #régime de fonctionnement
+    #régime de fonctionnement temporel
     
     for constraint in entries:
         CLE.apply_task(CLE.give_take_in_order(constraint.entry_area,constraint.model))
     
-    for constraint in in_ateliers:
-        CLE.apply_task(CLE.give_take_out_order(constraint.area_atelier,constraint.model))
     
-    for constraint in out_ateliers:
-        CLE.apply_task(CLE.give_take_in_order(constraint.area_atelier,constraint.model))
-    
-    for constraint in outs:
-        CLE.apply_task(CLE.give_take_out_order(constraint.out_area,constraint.model))
     
     CLE.affichage_remplissage()
     print(CLE.working_time)

@@ -20,7 +20,7 @@ if __name__ == "__main__":
     in_ateliers=in_ateliers_1
     out_ateliers=out_ateliers_1
     
-    #régime de fonctionnement
+    #régime de fonctionnement naïf
     
     for constraint in entries:
         CLE.apply_task(CLE.give_take_in_order(constraint.entry_area,constraint.model))
