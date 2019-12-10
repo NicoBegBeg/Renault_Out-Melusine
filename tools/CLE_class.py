@@ -52,7 +52,7 @@ class CLE:
                 D.remove_car(task.car_type,1)
             if F.name not in self.expedition_point:
                 F.add_car(task.car_type,1)
-
+        
 
 
     def affichage_remplissage(self):

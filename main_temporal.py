@@ -24,6 +24,12 @@ if __name__ == "__main__":
 
     in_ateliers=in_ateliers_1
     out_ateliers=out_ateliers_1
+    
+    
+    CLE.areas["stock"].filling["nissan"] = 100
+    CLE.areas["stock"].filling["renault"] = 100
+    CLE.areas["transit"].filling["nissan"] = 50
+    CLE.areas["transit"].filling["renault"] = 50
 
     #régime de fonctionnement temporel
 
@@ -32,6 +38,8 @@ if __name__ == "__main__":
     to_do_out=[]
     to_do_out_atelier=[]
     late=[]
+
+    CLE.affichage_remplissage()
 
     for m in range(T):
         for constraint in entries:
@@ -56,22 +64,28 @@ if __name__ == "__main__":
             
         #
         
+        if to_do_in != []:
+            print(to_do_in)
+        
         for constraint in to_do_in:
             if CLE.give_take_in_order_temporel(constraint.entry_area,constraint.model,m)!=False:
                 CLE.apply_task(CLE.give_take_in_order_temporel(constraint.entry_area,constraint.model,m))
                 to_do_in.remove(constraint)
         
-        for constraint in in_ateliers_1:
+        for constraint in to_do_in_atelier:
             if CLE.give_take_out_order_temporel(constraint.area_atelier,constraint.model,m)!=False:
                 CLE.apply_task(CLE.give_take_out_order_temporel(constraint.area_atelier,constraint.model,m))
+                to_do_in_atelier.remove(constraint)
         
-        for constraint in out_ateliers_1:
+        for constraint in to_do_out_atelier:
             if CLE.give_take_in_order_temporel(constraint.area_atelier,constraint.model,m)!=False:
                 CLE.apply_task(CLE.give_take_in_order_temporel(constraint.area_atelier,constraint.model,m))
+                to_do_out_atelier.remove(constraint)
         
-        for constraint in outs:
+        for constraint in to_do_out:
             if CLE.give_take_out_order_temporel(constraint.out_area,constraint.model,m)!=False:
                 CLE.apply_task(CLE.give_take_out_order_temporel(constraint.out_area,constraint.model,m))
+                to_do_out.remove(constraint)
         
         #CLE.affichage_remplissage()
                 
