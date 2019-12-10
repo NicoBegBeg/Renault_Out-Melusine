@@ -17,19 +17,19 @@ dictionnaire_temps_vecteur["transit"]["entree/sortie_CLE"] = 2
 dictionnaire_temps_vecteur["atelier"]["stock"] = 6
 dictionnaire_temps_vecteur["atelier"]["transit"] = 3
 dictionnaire_temps_vecteur["atelier"]["atelier"] = 0
-dictionnaire_temps_vecteur["atelier"]["sortie_usine"] = 100
-dictionnaire_temps_vecteur["atelier"]["entree/sortie_CLE"] = 100
+dictionnaire_temps_vecteur["atelier"]["sortie_usine"] = 10
+dictionnaire_temps_vecteur["atelier"]["entree/sortie_CLE"] = 10
 
 dictionnaire_temps_vecteur["sortie_usine"]["stock"] = 5
 dictionnaire_temps_vecteur["sortie_usine"]["transit"] = 2
-dictionnaire_temps_vecteur["sortie_usine"]["atelier"] = 100
+dictionnaire_temps_vecteur["sortie_usine"]["atelier"] = 10
 dictionnaire_temps_vecteur["sortie_usine"]["sortie_usine"] = 0
-dictionnaire_temps_vecteur["sortie_usine"]["entree/sortie_CLE"] = 100
+dictionnaire_temps_vecteur["sortie_usine"]["entree/sortie_CLE"] = 10
 
 dictionnaire_temps_vecteur["entree/sortie_CLE"]["stock"] = 8
 dictionnaire_temps_vecteur["entree/sortie_CLE"]["transit"] = 2
-dictionnaire_temps_vecteur["entree/sortie_CLE"]["atelier"] = 100
-dictionnaire_temps_vecteur["entree/sortie_CLE"]["sortie_usine"] = 100
+dictionnaire_temps_vecteur["entree/sortie_CLE"]["atelier"] = 10
+dictionnaire_temps_vecteur["entree/sortie_CLE"]["sortie_usine"] = 10
 dictionnaire_temps_vecteur["entree/sortie_CLE"]["entree/sortie_CLE"] = 0
 
 # données de Mardi pour la semaine 35
