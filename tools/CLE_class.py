@@ -55,7 +55,7 @@ class CLE:
                 F.add_car(task.car_type,1)
 
         else:
-            print("error : ",D.name, " ", F.name)
+            print("error : ",D.name, " ", F.name, (D.can_remove_car(task.car_type,1) or D.name in self.creation_point), (F.can_add_car(task.car_type,1) or F.name in self.expedition_point))
 
 
     def affichage_remplissage(self):
