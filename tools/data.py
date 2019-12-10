@@ -1,7 +1,7 @@
 #Fichier contenant toutes les données du problème
 
-from contraints import *
-from CLE_class import *
+from tools.constraints import *
+from tools.CLE_class import *
 
 areas={"stock":Area("stock",500,{}),"transit":Area("transit",200,{}),"sortie_usine":Area("sortie_usine",0,{}),"atelier":Area("atelier",100,{}),"entree/sortie_CLE":Area("entree/sortie_CLE",100,{})}
 

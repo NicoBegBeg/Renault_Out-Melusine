@@ -1,4 +1,4 @@
-from data import *
+from tools import *
 
 #Principe : A partir des contraintes, on effectue une série de tâches pour y répondre -> chaque tâche demande un temps t
 #Sans tenir compte de limites temporelles/matérielles/humaines, on applique toutes ces tâches successives au CLE

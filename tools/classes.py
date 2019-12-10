@@ -1,6 +1,7 @@
 #Contient les classes et méthodes utiles à la modélisation du CLE
+#EST OBSOLETTE, A NE PAS UTILISER
 
-import data
+# import data
 
 class CLE:
     def __init__(self,areas,temps_vecteur,entry,out):
@@ -12,7 +13,7 @@ class CLE:
 class Area:
     def __init__(self,nb_places,filling):
         self.filling=filling
-    
+
     def nb_places_restantes(self):
         count=0
         for i in self.filling:
