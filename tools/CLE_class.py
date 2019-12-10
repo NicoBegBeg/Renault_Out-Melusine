@@ -4,18 +4,19 @@ from tools.temps_vecteur import *
 
 class CLE:
 
-    def __init__(self,areas,temps_vecteur,entry,out,creation_point,expedition_point):
+    def __init__(self,areas,temps_vecteur,entry,out,creation_point,expedition_point,stocking_point):
         self.areas=areas
         self.temps_vecteur=temps_vecteur
         self.entry=entry
         self.out=out
         self.creation_point=creation_point
         self.expedition_point=expedition_point
+        self.stocking_point=stocking_point
         self.working_time=0
 
     def give_take_in_order(self,d_area,car_type): #génère naïvement la task pour affecter une voiture au stockage
         for area in self.areas:
-            if (self.areas[area].can_add_car(car_type,1) and area not in self.creation_point and area not in self.expedition_point):
+            if (self.areas[area].can_add_car(car_type,1) and area in self.stocking_point):
                 return(Task(d_area,area,car_type,'time'))
         print("Pas d'espace pour stocker le véhicule")
 
@@ -52,13 +53,9 @@ class CLE:
                 D.remove_car(task.car_type,1)
             if F.name not in self.expedition_point:
                 F.add_car(task.car_type,1)
-<<<<<<< HEAD
-        
-=======
 
         else:
             print("error : ",D.name, " ", F.name)
->>>>>>> a0cd709eda9f3609c459aee90e0e9541b17b9c76
 
 
     def affichage_remplissage(self):

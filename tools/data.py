@@ -42,4 +42,4 @@ for minute in range (0,total_minutes+1):
         else:
             out_ateliers_2 += [out_atelier(minute,"stock","atelier",modele)]
 
-CLE_ESSAI_1=CLE(areas,dictionnaire_input,entry,out,['sortie_usine'],[]) #'entree/sortie_CLE'
+CLE_ESSAI_1=CLE(areas,dictionnaire_input,entry,out,['sortie_usine'],[],['stock','transit']) #'entree/sortie_CLE'
