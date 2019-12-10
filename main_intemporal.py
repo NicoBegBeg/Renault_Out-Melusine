@@ -18,6 +18,10 @@ if __name__ == "__main__":
     #     CLE.areas[area].filling["nissan"] = 100
     #     CLE.areas[area].filling["renault"] = 100
     #     CLE.areas[area].nb_slot = 500
+    CLE.areas["stock"].filling["nissan"] = 100
+    CLE.areas["stock"].filling["renault"] = 100
+    CLE.areas["transit"].filling["nissan"] = 50
+    CLE.areas["transit"].filling["renault"] = 50
     
     entries=entries_1
     outs=outs_1
@@ -27,16 +31,16 @@ if __name__ == "__main__":
     
     #régime de fonctionnement naïf
     
-    for constraint in entries_1:
+    for constraint in entries_2:
         CLE.apply_task(CLE.give_take_in_order(constraint.entry_area,constraint.model))
     
-    for constraint in in_ateliers_1:
+    for constraint in in_ateliers_2:
         CLE.apply_task(CLE.give_take_out_order(constraint.area_atelier,constraint.model))
     
-    for constraint in out_ateliers_1:
+    for constraint in out_ateliers_2:
         CLE.apply_task(CLE.give_take_in_order(constraint.area_atelier,constraint.model))
     
-    for constraint in outs:
+    for constraint in outs_2:
         CLE.apply_task(CLE.give_take_out_order(constraint.out_area,constraint.model))
     
     CLE.affichage_remplissage()
