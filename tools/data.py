@@ -13,4 +13,4 @@ in_ateliers_1=[in_atelier(12,"stock","atelier","nissan"),in_atelier(13,"stock","
 
 out_ateliers_1=[out_atelier(13,"stock","atelier","nissan"),out_atelier(14,"stock","atelier","nissan"),out_atelier(15,"stock","atelier","renault"),out_atelier(15,"transit","atelier","renault"),out_atelier(16,"transit","atelier","renault")]
 
-CLE_ESSAI_1=CLE(areas,dictionnaire_input,entry,out,['sortie_usine'],['entree/sortie_CLE'])
+CLE_ESSAI_1=CLE(areas,dictionnaire_input,entry,out,['sortie_usine'],[]) #'entree/sortie_CLE'
