@@ -15,13 +15,15 @@ class CLE:
 
     def give_take_in_order(self,d_area,car_type): #génère naïvement la task pour affecter une voiture au stockage
         for area in self.areas:
-            if self.areas[area].can_add_car(car_type,1):
+            if (self.areas[area].can_add_car(car_type,1) and area not in self.creation_point and area not in self.expedition_point):
                 return(Task(d_area,area,car_type,'time'))
+        print("Pas d'espace pour stocker le véhicule")
 
     def give_take_out_order(self,f_area,car_type): #génère naïvement la task pour sortir une voiture du stockage
         for area in self.areas:
-            if self.areas[area].can_remove_car(car_type,1):
+            if (self.areas[area].can_remove_car(car_type,1) and area not in self.creation_point and area not in self.expedition_point):
                 return(Task(area,f_area,car_type,'time'))
+        print("Pas de véhicule correspondant")
 
 
     def apply_task(self,task):
@@ -30,7 +32,7 @@ class CLE:
 
         # Plutot mettre des raiseError
 
-        if D.can_remove_car(task.car_type,1) and F.can_add_car(task.car_type,1):
+        if (D.can_remove_car(task.car_type,1) or D.name in self.creation_point) and (F.can_add_car(task.car_type,1) or F.name in self.expedition_point):
 
             self.working_time+=dictionnaire_temps_vecteur[task.d_area][task.f_area]
 
@@ -38,8 +40,6 @@ class CLE:
                 D.remove_car(task.car_type,1)
             if F.name not in self.expedition_point:
                 F.add_car(task.car_type,1)
-
-            self.working_time += dictionnaire_temps_vecteur[task.d_area][task.f_area]
 
         else:
             print("error")

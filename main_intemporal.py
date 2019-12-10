@@ -14,10 +14,10 @@ if __name__ == "__main__":
     
     CLE=CLE_ESSAI_1
     
-    for area in CLE.areas:
-        CLE.areas[area].filling["nissan"] = 100
-        CLE.areas[area].filling["renault"] = 100
-        CLE.areas[area].nb_slot = 500
+    # for area in CLE.areas:
+    #     CLE.areas[area].filling["nissan"] = 100
+    #     CLE.areas[area].filling["renault"] = 100
+    #     CLE.areas[area].nb_slot = 500
     
     entries=entries_1
     outs=outs_1
@@ -30,14 +30,14 @@ if __name__ == "__main__":
     for constraint in entries_1:
         CLE.apply_task(CLE.give_take_in_order(constraint.entry_area,constraint.model))
     
-    # for constraint in in_ateliers_1:
-    #     CLE.apply_task(CLE.give_take_out_order(constraint.area_atelier,constraint.model))
+    for constraint in in_ateliers_1:
+        CLE.apply_task(CLE.give_take_out_order(constraint.area_atelier,constraint.model))
     
     for constraint in out_ateliers_1:
         CLE.apply_task(CLE.give_take_in_order(constraint.area_atelier,constraint.model))
     
-    # for constraint in outs:
-    #     CLE.apply_task(CLE.give_take_out_order(constraint.out_area,constraint.model))
+    for constraint in outs:
+        CLE.apply_task(CLE.give_take_out_order(constraint.out_area,constraint.model))
     
     CLE.affichage_remplissage()
     print(CLE.working_time)
