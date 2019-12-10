@@ -22,17 +22,17 @@ if __name__ == "__main__":
     
     #régime de fonctionnement naïf
     
-    for constraint in entries:
+    for constraint in entries_1:
         CLE.apply_task(CLE.give_take_in_order(constraint.entry_area,constraint.model))
     
-    for constraint in in_ateliers:
-        CLE.apply_task(CLE.give_take_out_order(constraint.area_atelier,constraint.model))
+    # for constraint in in_ateliers_1:
+    #     CLE.apply_task(CLE.give_take_out_order(constraint.area_atelier,constraint.model))
     
-    for constraint in out_ateliers:
+    for constraint in out_ateliers_1:
         CLE.apply_task(CLE.give_take_in_order(constraint.area_atelier,constraint.model))
     
-    for constraint in outs:
-        CLE.apply_task(CLE.give_take_out_order(constraint.out_area,constraint.model))
+    # for constraint in outs:
+    #     CLE.apply_task(CLE.give_take_out_order(constraint.out_area,constraint.model))
     
     CLE.affichage_remplissage()
     print(CLE.working_time)

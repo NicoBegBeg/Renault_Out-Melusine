@@ -39,6 +39,11 @@ class CLE:
             if F.name not in self.expedition_point:
                 F.add_car(task.car_type,1)
 
+            self.working_time += dictionnaire_temps_vecteur[task.d_area][task.f_area]
+
+        else:
+            print("error")
+
 
     def affichage_remplissage(self):
         for area_name in self.areas:
