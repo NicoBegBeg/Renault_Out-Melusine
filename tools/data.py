@@ -37,7 +37,7 @@ for minute in range (0,total_minutes+1):
         else:
             outs_2 += [out(minute,minute+15,"entree/sortie_CLE",modele)]
     else:
-        if rng.random() >= 0.5:
+        if rng.random() >= 0.35:
             in_ateliers_2 += [in_atelier(minute,"stock","atelier",modele)]
         else:
             out_ateliers_2 += [out_atelier(minute,"stock","atelier",modele)]
