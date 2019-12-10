@@ -52,13 +52,9 @@ class CLE:
                 D.remove_car(task.car_type,1)
             if F.name not in self.expedition_point:
                 F.add_car(task.car_type,1)
-<<<<<<< HEAD
-        
-=======
 
         else:
             print("error : ",D.name, " ", F.name)
->>>>>>> a0cd709eda9f3609c459aee90e0e9541b17b9c76
 
 
     def affichage_remplissage(self):
