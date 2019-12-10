@@ -14,6 +14,11 @@ if __name__ == "__main__":
     
     CLE=CLE_ESSAI_1
     
+    for area in CLE.areas:
+        CLE.areas[area].filling["nissan"] = 100
+        CLE.areas[area].filling["renault"] = 100
+        CLE.areas[area].nb_slot = 500
+    
     entries=entries_1
     outs=outs_1
     
