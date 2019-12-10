@@ -17,6 +17,8 @@ out_ateliers_1=[out_atelier(13,"stock","atelier","nissan"),out_atelier(14,"stock
 
 total_minutes = 60 * 12
 
+total_minutes = total_minutes//2
+
 entries_2=[]
 outs_2=[]
 in_ateliers_2=[]
@@ -38,6 +40,6 @@ for minute in range (0,total_minutes+1):
         if rng.random() >= 0.5:
             in_ateliers_2 += [in_atelier(minute,"stock","atelier",modele)]
         else:
-            out_ateliers_2=[out_atelier(minute,"stock","atelier",modele)]
+            out_ateliers_2 += [out_atelier(minute,"stock","atelier",modele)]
 
 CLE_ESSAI_1=CLE(areas,dictionnaire_input,entry,out,['sortie_usine'],[]) #'entree/sortie_CLE'

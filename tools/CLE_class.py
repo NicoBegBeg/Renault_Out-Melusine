@@ -42,7 +42,7 @@ class CLE:
                 F.add_car(task.car_type,1)
 
         else:
-            print("error")
+            print("error : ",D.name, " ", F.name)
 
 
     def affichage_remplissage(self):
