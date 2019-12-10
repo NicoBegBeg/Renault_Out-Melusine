@@ -24,7 +24,7 @@ class CLE:
             if (self.areas[area].can_remove_car(car_type,1) and area not in self.creation_point and area not in self.expedition_point):
                 return(Task(area,f_area,car_type,'time'))
         print("Pas de véhicule correspondant")
-        
+
     def give_take_in_order_temporel(self,d_area,car_type,time): #génère naïvement la task pour affecter une voiture au stockage
         for area in self.areas:
             if (self.areas[area].can_add_car(car_type,1) and area not in self.creation_point and area not in self.expedition_point):
@@ -52,7 +52,13 @@ class CLE:
                 D.remove_car(task.car_type,1)
             if F.name not in self.expedition_point:
                 F.add_car(task.car_type,1)
+<<<<<<< HEAD
         
+=======
+
+        else:
+            print("error : ",D.name, " ", F.name)
+>>>>>>> a0cd709eda9f3609c459aee90e0e9541b17b9c76
 
 
     def affichage_remplissage(self):

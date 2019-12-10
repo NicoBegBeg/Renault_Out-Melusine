@@ -18,8 +18,8 @@ if __name__ == "__main__":
     #     CLE.areas[area].filling["nissan"] = 100
     #     CLE.areas[area].filling["renault"] = 100
     #     CLE.areas[area].nb_slot = 500
-    CLE.areas["stock"].filling["nissan"] = 100
-    CLE.areas["stock"].filling["renault"] = 100
+    CLE.areas["stock"].filling["nissan"] = 200
+    CLE.areas["stock"].filling["renault"] = 200
     CLE.areas["transit"].filling["nissan"] = 50
     CLE.areas["transit"].filling["renault"] = 50
     
@@ -45,4 +45,5 @@ if __name__ == "__main__":
     
     CLE.affichage_remplissage()
     print(CLE.working_time)
-    
+
+print(len(entries_2)," ",len(in_ateliers_2)," ",len(out_ateliers_2)," ",len(outs_2))
