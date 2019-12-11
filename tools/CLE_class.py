@@ -56,7 +56,8 @@ class CLE:
 
         else:
             print("error : ",D.name, " ", F.name, (D.can_remove_car(task.car_type,1) or D.name in self.creation_point), (F.can_add_car(task.car_type,1) or F.name in self.expedition_point))
-
+        
+        return(dictionnaire_temps_vecteur[task.d_area][task.f_area])
 
     def affichage_remplissage(self):
         for area_name in self.areas:

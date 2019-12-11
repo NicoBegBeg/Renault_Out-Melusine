@@ -14,16 +14,15 @@ from Jockey_class import *
 if __name__ == "__main__":
 
     T=24*60
-    Nb_Jockeys=20 #à passer dans data à terme
+    Nb_Jockeys=3 #à passer dans data à terme
 
     CLE=CLE_ESSAI_1
     Jockey_pool = Jockey_pool(Nb_Jockeys)
 
-    entries=entries_1
-    outs=outs_1
-
-    in_ateliers=in_ateliers_1
-    out_ateliers=out_ateliers_1
+    entries=entries_2
+    outs=outs_2
+    in_ateliers=in_ateliers_2
+    out_ateliers=out_ateliers_2
     
     
     CLE.areas["stock"].filling["nissan"] = 100
@@ -39,7 +38,6 @@ if __name__ == "__main__":
     to_do_out_atelier=[]
     late=[]
 
-    CLE.affichage_remplissage()
 
     for m in range(T):
         for constraint in entries:
@@ -64,32 +62,35 @@ if __name__ == "__main__":
             
         #
         
-        if to_do_in != []:
-            print(to_do_in)
         
         for constraint in to_do_in:
-            if CLE.give_take_in_order_temporel(constraint.entry_area,constraint.model,m)!=False:
-                CLE.apply_task(CLE.give_take_in_order_temporel(constraint.entry_area,constraint.model,m))
+            if CLE.give_take_in_order_temporel(constraint.entry_area,constraint.model,m)!=False and Jockey_pool.dispo():
+                a=CLE.apply_task(CLE.give_take_in_order_temporel(constraint.entry_area,constraint.model,m))
+                Jockey_pool.working(a)
                 to_do_in.remove(constraint)
         
         for constraint in to_do_in_atelier:
-            if CLE.give_take_out_order_temporel(constraint.area_atelier,constraint.model,m)!=False:
-                CLE.apply_task(CLE.give_take_out_order_temporel(constraint.area_atelier,constraint.model,m))
+            if CLE.give_take_out_order_temporel(constraint.area_atelier,constraint.model,m)!=False and Jockey_pool.dispo():
+                a=CLE.apply_task(CLE.give_take_out_order_temporel(constraint.area_atelier,constraint.model,m))
+                Jockey_pool.working(a)
                 to_do_in_atelier.remove(constraint)
         
         for constraint in to_do_out_atelier:
-            if CLE.give_take_in_order_temporel(constraint.area_atelier,constraint.model,m)!=False:
-                CLE.apply_task(CLE.give_take_in_order_temporel(constraint.area_atelier,constraint.model,m))
+            if CLE.give_take_in_order_temporel(constraint.area_atelier,constraint.model,m)!=False and Jockey_pool.dispo():
+                a=CLE.apply_task(CLE.give_take_in_order_temporel(constraint.area_atelier,constraint.model,m))
+                Jockey_pool.working(a)
                 to_do_out_atelier.remove(constraint)
         
         for constraint in to_do_out:
-            if CLE.give_take_out_order_temporel(constraint.out_area,constraint.model,m)!=False:
-                CLE.apply_task(CLE.give_take_out_order_temporel(constraint.out_area,constraint.model,m))
+            if CLE.give_take_out_order_temporel(constraint.out_area,constraint.model,m)!=False and Jockey_pool.dispo():
+                a=CLE.apply_task(CLE.give_take_out_order_temporel(constraint.out_area,constraint.model,m))
+                Jockey_pool.working(a)
+                if m>constraint.outtime_max:
+                    late.append(m-constraint.outtime_max)
                 to_do_out.remove(constraint)
         
-        #CLE.affichage_remplissage()
-                
-
+        Jockey_pool.refresh()
 
     CLE.affichage_remplissage()
     print(CLE.working_time)
+    print(late)
