@@ -1,0 +1,169 @@
+# Semaine 35_Base temps vecteurs
+
+dictionnaire_temps_vecteur = {"parcA":{},"parcB":{},"parcC":{},"parcD":{},"parcE":{},"parcF":{},"parcG":{},
+                             "parcH":{},"parcX":{},"parcY":{},"parcZ":{},"parcT":{},"parcTg":{},"parcVU":{},"madc":{},
+                              "atelier":{},"route":{},"fer":{},"barge":{}}
+#madc=sortie_usine, parcA=parcA(transit)&parcH=parcW-H
+#dans l'excel semaine 35, il y des parcT et parcT grillage que je trouve pas dans le layout...mais j'en ecris ici
+#dans le layout, il y a des parc R,L mais pas de donnée et j'en néglige.
+dictionnaire_temps_vecteur["madc"]["parcD"] = 8.81
+dictionnaire_temps_vecteur["madc"]["parcE"] = 8.86
+dictionnaire_temps_vecteur["madc"]["parcG"] = 10.82
+dictionnaire_temps_vecteur["madc"]["parcT"] = 10.45
+dictionnaire_temps_vecteur["madc"]["parcTg"] = 7.60
+dictionnaire_temps_vecteur["madc"]["parcX"] = 10.12
+dictionnaire_temps_vecteur["madc"]["parcY"] = 10.58
+dictionnaire_temps_vecteur["madc"]["parcZ"] = 11.20 # pas de parcVU
+dictionnaire_temps_vecteur["madc"]["atelier"] = 6.83
+dictionnaire_temps_vecteur["madc"]["parcA"] = 6.93
+dictionnaire_temps_vecteur["madc"]["parcB"] = 7.45
+dictionnaire_temps_vecteur["madc"]["parcC"] = 8.42
+dictionnaire_temps_vecteur["madc"]["parcF"] = 10.73
+dictionnaire_temps_vecteur["madc"]["parcH"] = 10.02
+
+dictionnaire_temps_vecteur["route"]["parcD"] = 6.69
+dictionnaire_temps_vecteur["route"]["parcE"] = 5.98
+dictionnaire_temps_vecteur["route"]["parcG"] = 7.52
+dictionnaire_temps_vecteur["route"]["parcT"] = 9.14
+dictionnaire_temps_vecteur["route"]["parcTg"] = 6.02
+dictionnaire_temps_vecteur["route"]["parcX"] = 8.32
+dictionnaire_temps_vecteur["route"]["parcY"] = 9.14
+dictionnaire_temps_vecteur["route"]["parcZ"] = 11.03
+dictionnaire_temps_vecteur["route"]["parcVU"] = 6.29 
+dictionnaire_temps_vecteur["route"]["parcA"] = 6.53
+dictionnaire_temps_vecteur["route"]["atelier"] = 6.30
+dictionnaire_temps_vecteur["route"]["parcB"] = 5.51
+dictionnaire_temps_vecteur["route"]["parcC"] = 6.27
+dictionnaire_temps_vecteur["route"]["parcF"] = 6.63
+dictionnaire_temps_vecteur["route"]["parcH"] = 7.23
+
+dictionnaire_temps_vecteur["fer"]["parcD"] = 6.33
+dictionnaire_temps_vecteur["fer"]["parcE"] = 5.33
+dictionnaire_temps_vecteur["fer"]["parcG"] = 6.72
+dictionnaire_temps_vecteur["fer"]["parcT"] = 8.78
+dictionnaire_temps_vecteur["fer"]["parcTg"] = 6.98
+dictionnaire_temps_vecteur["fer"]["parcX"] = 9.96
+dictionnaire_temps_vecteur["fer"]["parcY"] = 10.39
+dictionnaire_temps_vecteur["fer"]["parcZ"] = 11.07
+dictionnaire_temps_vecteur["fer"]["parcVU"] = 6.29 
+dictionnaire_temps_vecteur["fer"]["parcA"] = 7.97
+dictionnaire_temps_vecteur["fer"]["atelier"] = 7.96
+dictionnaire_temps_vecteur["fer"]["parcB"] = 6.72
+dictionnaire_temps_vecteur["fer"]["parcC"] = 7.40
+dictionnaire_temps_vecteur["fer"]["parcF"] = 5.79 #pas de parcH
+
+dictionnaire_temps_vecteur["barge"]["parcD"] = 6.20
+dictionnaire_temps_vecteur["barge"]["parcE"] = 6.59
+dictionnaire_temps_vecteur["barge"]["parcG"] = 6.38
+dictionnaire_temps_vecteur["barge"]["parcT"] = 5.82
+dictionnaire_temps_vecteur["barge"]["parcTg"] = 5.37
+dictionnaire_temps_vecteur["barge"]["parcX"] = 11.82
+dictionnaire_temps_vecteur["barge"]["parcY"] = 12.58
+dictionnaire_temps_vecteur["barge"]["parcZ"] = 13.94
+dictionnaire_temps_vecteur["barge"]["parcVU"] = 5.49 
+dictionnaire_temps_vecteur["barge"]["parcA"] = 8.12
+dictionnaire_temps_vecteur["barge"]["atelier"] = 8.18
+dictionnaire_temps_vecteur["barge"]["parcB"] = 8.52
+dictionnaire_temps_vecteur["barge"]["parcC"] = 6.63
+dictionnaire_temps_vecteur["barge"]["parcF"] = 7.40
+dictionnaire_temps_vecteur["barge"]["parcH"] = 4.26
+
+
+dictionnaire_temps_vecteur["parcD"]["parcA"] = 6.93
+dictionnaire_temps_vecteur["parcE"]["parcA"] = 6.93
+dictionnaire_temps_vecteur["parcD"]["parcB"] = 6.93
+dictionnaire_temps_vecteur["parcE"]["parcB"] = 6.93
+dictionnaire_temps_vecteur["parcD"]["parcC"] = 5.92
+dictionnaire_temps_vecteur["parcE"]["parcC"] = 5.92
+dictionnaire_temps_vecteur["parcG"]["parcA"] = 8.72
+dictionnaire_temps_vecteur["parcG"]["parcB"] = 8.72
+dictionnaire_temps_vecteur["parcG"]["parcC"] = 7.65
+dictionnaire_temps_vecteur["parcVU"]["parcA"] = 7.80
+dictionnaire_temps_vecteur["parcVU"]["parcB"] = 7.80
+dictionnaire_temps_vecteur["parcVU"]["parcC"] = 6.80
+dictionnaire_temps_vecteur["parcX"]["parcA"] = 9.12
+dictionnaire_temps_vecteur["parcX"]["parcB"] = 9.12
+dictionnaire_temps_vecteur["parcX"]["parcC"] = 10.40
+dictionnaire_temps_vecteur["parcY"]["parcA"] = 10.48
+dictionnaire_temps_vecteur["parcY"]["parcB"] = 10.48
+dictionnaire_temps_vecteur["parcZ"]["parcA"] = 10.48
+dictionnaire_temps_vecteur["parcZ"]["parcB"] = 10.48
+dictionnaire_temps_vecteur["parcY"]["parcC"] = 11.78
+dictionnaire_temps_vecteur["parcZ"]["parcC"] = 11.78
+dictionnaire_temps_vecteur["parcTg"]["parcA"] = 7.15
+dictionnaire_temps_vecteur["parcTg"]["parcB"] = 7.15
+dictionnaire_temps_vecteur["parcTg"]["parcC"] = 5.53
+
+dictionnaire_temps_vecteur["parcT"]["parcA"] = 9.49
+dictionnaire_temps_vecteur["parcT"]["parcB"] = 9.49
+dictionnaire_temps_vecteur["parcT"]["parcC"] = 7.71
+
+dictionnaire_temps_vecteur["atelier"]["parcD"] = 7.41
+dictionnaire_temps_vecteur["atelier"]["parcE"] = 7.41
+dictionnaire_temps_vecteur["atelier"]["parcTg"] = 6.37
+dictionnaire_temps_vecteur["atelier"]["parcT"] = 8.94
+dictionnaire_temps_vecteur["atelier"]["parcX"] = 10.02
+dictionnaire_temps_vecteur["atelier"]["parcY"] = 10.87
+dictionnaire_temps_vecteur["atelier"]["parcZ"] = 10.87
+
+dictionnaire_temps_vecteur["parcD"]["atelier"] = 5.97 #pas égale à aterlier - parcD
+dictionnaire_temps_vecteur["parcE"]["atelier"] = 5.97 
+dictionnaire_temps_vecteur["parcG"]["atelier"] = 6.05
+dictionnaire_temps_vecteur["parcVU"]["atelier"] = 7.17
+dictionnaire_temps_vecteur["parcX"]["atelier"] = 8.68
+dictionnaire_temps_vecteur["parcY"]["atelier"] = 9.85
+dictionnaire_temps_vecteur["parcZ"]["atelier"] = 9.85
+dictionnaire_temps_vecteur["parcTg"]["atelier"] = 4.74
+dictionnaire_temps_vecteur["parcT"]["atelier"] = 7.09
+
+#parc vers changement route
+dictionnaire_temps_vecteur["atelier"]["parcA"] = 6.21
+dictionnaire_temps_vecteur["atelier"]["parcB"] = 5.96
+
+dictionnaire_temps_vecteur["parcA"]["parcH"] = 8.42
+dictionnaire_temps_vecteur["parcB"]["parcH"] = 8.42
+dictionnaire_temps_vecteur["parcA"]["parcG"] = 8.02
+dictionnaire_temps_vecteur["parcB"]["parcG"] = 8.02
+dictionnaire_temps_vecteur["parcC"]["parcH"] = 6.12
+dictionnaire_temps_vecteur["parcC"]["parcG"] = 7.19
+dictionnaire_temps_vecteur["parcF"]["parcH"] = 7.02
+dictionnaire_temps_vecteur["parcF"]["parcG"] = 6.49
+
+#fer
+dictionnaire_temps_vecteur["parcD"]["parcF"] = 6.76
+dictionnaire_temps_vecteur["parcE"]["parcF"] = 6.76
+dictionnaire_temps_vecteur["parcG"]["parcF"] = 6.06
+dictionnaire_temps_vecteur["parcVU"]["parcF"] = 5.91
+dictionnaire_temps_vecteur["parcX"]["parcF"] = 10.17
+dictionnaire_temps_vecteur["parcY"]["parcF"] = 11.72
+dictionnaire_temps_vecteur["parcZ"]["parcF"] = 11.72
+dictionnaire_temps_vecteur["parcTg"]["parcF"] = 8.23
+dictionnaire_temps_vecteur["parcT"]["parcF"] = 8.66
+dictionnaire_temps_vecteur["atelier"]["parcF"] = 8.66
+
+#Barge
+dictionnaire_temps_vecteur["parcD"]["parcH"] = 6.43
+dictionnaire_temps_vecteur["parcE"]["parcH"] = 6.43
+dictionnaire_temps_vecteur["parcG"]["parcH"] = 6.14
+dictionnaire_temps_vecteur["parcVU"]["parcH"] = 6.49
+dictionnaire_temps_vecteur["parcX"]["parcH"] = 11.42
+dictionnaire_temps_vecteur["parcY"]["parcH"] = 12.87
+dictionnaire_temps_vecteur["parcZ"]["parcH"] = 12.87
+dictionnaire_temps_vecteur["parcTg"]["parcH"] = 6.48
+dictionnaire_temps_vecteur["parcT"]["parcH"] = 6.12
+dictionnaire_temps_vecteur["atelier"]["parcH"] = 7.59
+
+# données de Mardi pour la semaine 35
+
+# dictionnaire_input["sortie_usine"]["transit"] donne le nombre de véhicules qui arrivent depuis la sortie de l'usine et qu'il stocker en transit
+
+dictionnaire_input ={"sortie_usine":{"stock":4+11+16+3+8+2,"transit":18+25+3+7}, "entree/sortie_CLE":{"stock":310+3+24+19+3+4+8,"transit":17+3+9+11}}
+
+# on suppose que les véhicules partent forcément du CLE depuis un zone de transit ?
+# en fait je suis pas sûr de comprendre les données
+
+output = 10 + 5 + 8
+
+if __name__ == "__main__":
+    for nom,val in dictionnaire_temps_vecteur.items():
+        print(nom, " ", val)
