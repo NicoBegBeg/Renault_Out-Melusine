@@ -13,22 +13,19 @@ from Jockey_class import *
 
 if __name__ == "__main__":
 
-    T=24*60
-    Nb_Jockeys=3 #à passer dans data à terme
+    #T=24*60
+    T = temps_travail_minutes
+    #Nb_Jockeys=3 #à passer dans data à terme
+    Nb_Jockeys=20
 
-    CLE=CLE_ESSAI_1
+    CLE=CLE_ESSAI_3
     Jockey_pool = Jockey_pool(Nb_Jockeys)
 
-    entries=entries_2
-    outs=outs_2
-    in_ateliers=in_ateliers_2
-    out_ateliers=out_ateliers_2
+    entries=entries_3
+    outs=outs_3
+    in_ateliers=in_ateliers_3
+    out_ateliers=out_ateliers_3
     
-    
-    CLE.areas["stock"].filling["nissan"] = 100
-    CLE.areas["stock"].filling["renault"] = 100
-    CLE.areas["transit"].filling["nissan"] = 50
-    CLE.areas["transit"].filling["renault"] = 50
 
     #régime de fonctionnement temporel
 
