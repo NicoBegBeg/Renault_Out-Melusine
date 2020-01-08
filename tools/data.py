@@ -74,7 +74,7 @@ total_stock_dispo = place_dispo_total - total_transit_dispo
 #valeurs arbitraires
 
 place_usine = 500
-place_atelier = 500
+place_atelier = 850 #sature si en dessous de 750
 place_entree_sortie = 500
 proba_renault = 4/5
 
@@ -161,6 +161,9 @@ CLE_ESSAI_3=CLE(areas,dictionnaire_temps_vecteur,['sortie_usine'],[],['stock','t
 CLE_ESSAI_3.areas["stock"].filling["nissan"] = stock_nissan_occupe
 CLE_ESSAI_3.areas["stock"].filling["renault"] = stock_renault_occupe
 CLE_ESSAI_3.areas["transit"].filling["renault"] = transit_renault_occupe
+CLE_ESSAI_3.areas["atelier"].filling["renault"] = 10
+CLE_ESSAI_3.areas["atelier"].filling["nissan"] = 10
+
 
 
 

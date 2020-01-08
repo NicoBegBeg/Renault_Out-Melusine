@@ -13,7 +13,7 @@ class Area:
         return(self.nb_slot-count)
 
     def can_add_car(self,car_type,nb_car):
-        return(nb_car<self.nb_places_restantes())
+        return(nb_car<=self.nb_places_restantes())
 
     def can_remove_car(self,car_type,nb_car):
         for i in self.filling:
