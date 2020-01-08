@@ -161,8 +161,8 @@ CLE_ESSAI_3=CLE(areas,dictionnaire_temps_vecteur,['sortie_usine'],[],['stock','t
 CLE_ESSAI_3.areas["stock"].filling["nissan"] = stock_nissan_occupe
 CLE_ESSAI_3.areas["stock"].filling["renault"] = stock_renault_occupe
 CLE_ESSAI_3.areas["transit"].filling["renault"] = transit_renault_occupe
-CLE_ESSAI_3.areas["atelier"].filling["renault"] = 10
-CLE_ESSAI_3.areas["atelier"].filling["nissan"] = 10
+CLE_ESSAI_3.areas["atelier"].filling["renault"] = 50
+CLE_ESSAI_3.areas["atelier"].filling["nissan"] = 50
 
 
 

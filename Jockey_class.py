@@ -16,7 +16,7 @@ class Jockey_pool:
     def refresh(self):
         freed=0
         for i in range(len(self.busy)):
-            if self.busy[i-freed]==1:
+            if self.busy[i-freed]<=1:
                 self.busy.remove(self.busy[i-freed])
                 freed+=1
             else:
