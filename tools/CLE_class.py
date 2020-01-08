@@ -1,14 +1,12 @@
 from tools.Task_class import *
 from tools.Area_class import *
-from tools.temps_vecteur import *
+
 
 class CLE:
 
-    def __init__(self,areas,temps_vecteur,entry,out,creation_point,expedition_point,stocking_point):
+    def __init__(self,areas,temps_vecteur,creation_point,expedition_point,stocking_point):
         self.areas=areas
         self.temps_vecteur=temps_vecteur
-        self.entry=entry
-        self.out=out
         self.creation_point=creation_point
         self.expedition_point=expedition_point
         self.stocking_point=stocking_point
@@ -47,7 +45,7 @@ class CLE:
 
         if (D.can_remove_car(task.car_type,1) or D.name in self.creation_point) and (F.can_add_car(task.car_type,1) or F.name in self.expedition_point):
 
-            self.working_time+=dictionnaire_temps_vecteur[task.d_area][task.f_area]
+            self.working_time+=self.temps_vecteur[task.d_area][task.f_area]
 
             if D.name not in self.creation_point:
                 D.remove_car(task.car_type,1)
@@ -57,7 +55,7 @@ class CLE:
         else:
             print("error : ",D.name, " ", F.name, (D.can_remove_car(task.car_type,1) or D.name in self.creation_point), (F.can_add_car(task.car_type,1) or F.name in self.expedition_point))
         
-        return(dictionnaire_temps_vecteur[task.d_area][task.f_area])
+        return(self.temps_vecteur[task.d_area][task.f_area])
 
     def affichage_remplissage(self):
         for area_name in self.areas:

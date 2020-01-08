@@ -1,5 +1,6 @@
 #Fichier contenant toutes les données du problème
 
+from tools.temps_vecteur import *
 from tools.constraints import *
 from tools.CLE_class import *
 import random as rng
@@ -45,7 +46,7 @@ for minute in range (0,total_minutes+1):
         else:
             out_ateliers_2 += [out_atelier(minute,"stock","atelier",modele)]
 
-CLE_ESSAI_1=CLE(areas,dictionnaire_input,entry,out,['sortie_usine'],[],['stock','transit']) #'entree/sortie_CLE'
+CLE_ESSAI_1=CLE(areas,dictionnaire_temps_vecteur,['sortie_usine'],[],['stock','transit']) #'entree/sortie_CLE'
 
 ##2eme version automatique
 
@@ -155,7 +156,7 @@ out_ateliers_3.sort(key = lambda current_constraint: current_constraint.out_time
 
 areas={"stock":Area("stock",total_stock_dispo,{}),"transit":Area("transit",total_transit_dispo,{}),"sortie_usine":Area("sortie_usine",place_usine,{}),"atelier":Area("atelier",place_atelier,{}),"entree/sortie_CLE":Area("entree/sortie_CLE",place_entree_sortie,{})}
 
-CLE_ESSAI_3=CLE(areas,dictionnaire_input,entry,out,['sortie_usine'],[],['stock','transit'])
+CLE_ESSAI_3=CLE(areas,dictionnaire_temps_vecteur,['sortie_usine'],[],['stock','transit'])
 
 CLE_ESSAI_3.areas["stock"].filling["nissan"] = stock_nissan_occupe
 CLE_ESSAI_3.areas["stock"].filling["renault"] = stock_renault_occupe
