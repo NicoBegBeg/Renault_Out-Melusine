@@ -35,6 +35,7 @@ if __name__ == "__main__":
     to_do_out_atelier=[]
     late=[]
 
+    
 
     for m in range(T):
         for constraint in entries:
