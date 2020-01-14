@@ -15,11 +15,12 @@ if __name__ == "__main__":
 
     #T=24*60
     T = temps_travail_minutes
-    #Nb_Jockeys=3 #à passer dans data à terme
     Nb_Jockeys=25
-
+    Navette_capacity=3
+    Navette_fleet=3
+    
     CLE=CLE_ESSAI_3
-    CLE_Jockey_pool = Jockey_pool(Nb_Jockeys)
+    CLE_Jockey_pool = Jockey_pool(Nb_Jockeys,Navette_capacity,Navette_fleet,CLE)
 
     entries=entries_3
     outs=outs_3
@@ -101,3 +102,6 @@ if __name__ == "__main__":
         print(sum(late)/len(late))
     else :
         print('pas de retard')
+    
+    print(CLE_Jockey_pool.queue_in)
+    print(CLE_Jockey_pool.queue_out)

@@ -56,7 +56,7 @@ class CLE:
             #print("error : ",D.name, " ", F.name, (D.can_remove_car(task.car_type,1) or D.name in self.creation_point), (F.can_add_car(task.car_type,1) or F.name in self.expedition_point))
             print(f"Error ! Impossible to move a car from {D.name} (possible : {D.can_remove_car(task.car_type,1) or D.name in self.creation_point} ; remplissage : {D.filling}) to  {F.name} (possible : {F.can_add_car(task.car_type,1) or F.name in self.expedition_point} ; places disponibles : {F.nb_places_restantes()})")
 
-        return(self.temps_vecteur[task.d_area][task.f_area])#,task.d_area,task.f_area)
+        return(self.temps_vecteur[task.d_area][task.f_area],task.d_area,task.f_area)
 
     def affichage_remplissage(self):
         for area_name in self.areas:
