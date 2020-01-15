@@ -17,7 +17,7 @@ if __name__ == "__main__":
     T = temps_travail_minutes
     Nb_Jockeys=25
     Navette_capacity=3
-    Navette_fleet=3
+    Navette_fleet=5
     
     CLE=CLE_ESSAI_3
     CLE_Jockey_pool = Jockey_pool(Nb_Jockeys,Navette_capacity,Navette_fleet,CLE)

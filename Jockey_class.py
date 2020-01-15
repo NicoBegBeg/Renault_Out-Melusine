@@ -43,7 +43,7 @@ class Jockey_pool:
                         self.free-=working_jockey
                         self.free_navette-=1
                         self.queue_in[d_area][f_area]-=working_jockey
-                        print('navette entrée envoyée')
+                        #print('navette entrée envoyée')
             
             for f_area in self.queue_out.keys():
                 for d_area in self.queue_out[f_area].keys():
@@ -55,7 +55,7 @@ class Jockey_pool:
                         self.free-=working_jockey
                         self.free_navette-=1
                         self.queue_in[f_area][d_area]-=working_jockey
-                        print('navette sortie envoyée')
+                        #print('navette sortie envoyée')
         
         
         freed_n=0
@@ -65,7 +65,7 @@ class Jockey_pool:
             if self.busy_navette[j-freed_n]<=1:
                 self.busy_navette.remove(self.busy_navette[j-freed_n])
                 freed_n+=1
-                print('raz d une navette')
+                #print('raz d une navette')
             else:
                 self.busy_navette[j-freed_n]-=1
         self.free_navette+=freed_n
