@@ -26,3 +26,12 @@ class out_atelier:
         self.area_out = area_out
         self.model = model
 
+
+class general_constraint:
+    def __init__(self,departure_time,departure_fonction_area,model,latest_possible_arrival_time,arrival_fonction_area,planned_out_date):
+        self.departure_time = departure_time
+        self.departure_fonction_area = departure_fonction_area
+        self.model = model
+        self.latest_possible_arrival_time = latest_possible_arrival_time
+        self.arrival_fonction_area = arrival_fonction_area
+        self.planned_out_date = planned_out_date

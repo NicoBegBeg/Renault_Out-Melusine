@@ -1,4 +1,7 @@
 nombre de jockeys;35
+heure d'ouverture;5
+heure de fermeteure;23
 temps max entree (en minutes);120
 temps max sortie (en minutes);120
 temps max atelier (en minutes);120
+temps max autre (en minutes);120

@@ -45,3 +45,7 @@ class Area:
 
         assert done,"Retrait interdit : Aucun véhicules de ce modèle"
         #Plutot des RaiseError
+
+    def __repr__(self):
+        total_filling = sum([x for x in self.filling.values()])
+        return f"Area('{self.name}' : {total_filling}/{self.nb_slot})"
