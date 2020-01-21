@@ -16,7 +16,7 @@ if __name__ == "__main__":
     #T=24*60
     T = temps_travail_minutes
     #Nb_Jockeys=3 #à passer dans data à terme
-    Nb_Jockeys=25
+    Nb_Jockeys=35
 
     CLE=CLE_ESSAI_3
     CLE_Jockey_pool = Jockey_pool(Nb_Jockeys)

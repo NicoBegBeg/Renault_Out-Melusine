@@ -1,0 +1,7 @@
+Nom;Fonction;Nombre de places;Nombre de places déjà occupées
+S1;stock;7000;5000
+S2;stock;6500;4000
+T1;stock;4500;3000
+A1;atelier;1000;100
+MADC;usine;500;0
+Entree/Sortie route;entree/sortie_route;500;0

@@ -1,0 +1,6 @@
+Zone (fontion) de départ;Zone (fonction) d'arrivée;Nombre de véhicules
+usine;stock;1000
+entree/sortie_route;stock;400
+stock;atelier;1400
+atelier;stock;1400
+stock;entree/sortie_route;300
