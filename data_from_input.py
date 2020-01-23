@@ -2,6 +2,7 @@ from Input_Handler import *
 from tools import *
 import random as rng
 
+
 given_zones = give_zone()
 
 input_areas= [ ( Area(x[0],int(x[2]),{"renault": int(x[3]) } ), x[1] ) for x in given_zones ]

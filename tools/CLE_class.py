@@ -4,60 +4,77 @@ from tools.Area_class import *
 
 class CLE:
 
-    def __init__(self,areas,temps_vecteur,creation_point,expedition_point,stocking_point):
-        self.areas=areas
+    def __init__(self,list_areas,temps_vecteur):
+        
+        self.areas={"stock":{},"atelier":{},"usine":{},"entree/sortie_route":{}}
+        for area in list_areas:
+            if area[1] in self.areas.keys():
+                self.areas[area[1]][area[0].name]=(area[0])
+            else :
+                print('Erreur : la fonction "+str(area[1])+" n_est pas dans la liste "stock","atelier","usine","entree/sortie_route"')
+        
+        print(self.areas)
+        
         self.temps_vecteur=temps_vecteur
-        self.creation_point=creation_point
-        self.expedition_point=expedition_point
-        self.stocking_point=stocking_point
         self.working_time=0
 
-    def give_take_in_order(self,d_area,car_type): #génère naïvement la task pour affecter une voiture au stockage
-        for area in self.areas:
-            if (self.areas[area].can_add_car(car_type,1) and area in self.stocking_point):
-                return(Task(d_area,area,car_type,'time'))
-        print("Pas d'espace pour stocker le véhicule")
+    def give_order(self,constraint): #génère "naïvement" la task pour sortir une voiture du stockage
 
-    def give_take_out_order(self,f_area,car_type): #génère naïvement la task pour sortir une voiture du stockage
-        for area in self.areas:
-            if (self.areas[area].can_remove_car(car_type,1) and area not in self.creation_point and area not in self.expedition_point):
-                return(Task(area,f_area,car_type,'time'))
-        print("Pas de véhicule correspondant")
-
-    def give_take_in_order_temporel(self,d_area,car_type,time): #génère naïvement la task pour affecter une voiture au stockage
-        for area in self.areas:
-            if (self.areas[area].can_add_car(car_type,1) and area not in self.creation_point and area not in self.expedition_point):
-                return(Task(d_area,area,car_type,time))
-        return(False)
-
-    def give_take_out_order_temporel(self,f_area,car_type,time): #génère naïvement la task pour sortir une voiture du stockage
-        for area in self.areas:
-            if (self.areas[area].can_remove_car(car_type,1) and area not in self.creation_point and area not in self.expedition_point):
-                return(Task(area,f_area,car_type,time))
-        return(False)
+        possible_departure_area=[]
+        possible_arrival_area=[]
+        
+        for area_name in self.areas[constraint.departure_fonction_area]:
+            area=self.areas[constraint.departure_fonction_area][area_name]
+            if (area.can_remove_car(constraint.model,1) or constraint.departure_fonction_area=="usine"):
+                possible_departure_area.append(area)
+        
+        for area_name in self.areas[constraint.arrival_fonction_area]:
+            area=self.areas[constraint.arrival_fonction_area][area_name]
+            if (area.can_add_car(constraint.model,1) or constraint.arrival_fonction_area=="entree/sortie_route"):
+                possible_arrival_area.append(area)
+        
+        min=10**5
+        id_d_min=-1
+        id_a_min=-1
+        
+        for a_d in possible_departure_area:
+            for a_a in possible_departure_area:
+                id_d=a_d.name
+                id_a=a_a.name
+                if float(self.temps_vecteur[id_d][id_a])<min:
+                    id_d_min=id_d
+                    id_a_min=id_a
+                    min=float(self.temps_vecteur[id_d][id_a])
+        
+        if id_d_min!=-1:
+            return(Task(constraint.departure_fonction_area,id_d_min,constraint.departure_fonction_area,id_a_min,constraint.model))
+        else:
+            return(False)
 
 
     def apply_task(self,task):
-        D=self.areas[task.d_area]
-        F=self.areas[task.f_area]
+        
+        D=self.areas[task.fct_d_area][task.d_area]
+        F=self.areas[task.fct_f_area][task.f_area]
 
         # Plutot mettre des raiseError
 
-        if (D.can_remove_car(task.car_type,1) or D.name in self.creation_point) and (F.can_add_car(task.car_type,1) or F.name in self.expedition_point):
+        if (D.can_remove_car(task.car_type,1) or task.fct_d_area=="usine") and (F.can_add_car(task.car_type,1) or task.fct_f_area=="entree/sortie_route"):
 
-            self.working_time+=self.temps_vecteur[task.d_area][task.f_area]
+            self.working_time+=float(self.temps_vecteur[task.d_area][task.f_area])
 
-            if D.name not in self.creation_point:
+            if task.fct_d_area!="usine":
                 D.remove_car(task.car_type,1)
-            if F.name not in self.expedition_point:
+            if task.fct_f_area!="entree/sortie_route":
                 F.add_car(task.car_type,1)
 
         else:
-            #print("error : ",D.name, " ", F.name, (D.can_remove_car(task.car_type,1) or D.name in self.creation_point), (F.can_add_car(task.car_type,1) or F.name in self.expedition_point))
-            print(f"Error ! Impossible to move a car from {D.name} (possible : {D.can_remove_car(task.car_type,1) or D.name in self.creation_point} ; remplissage : {D.filling}) to  {F.name} (possible : {F.can_add_car(task.car_type,1) or F.name in self.expedition_point} ; places disponibles : {F.nb_places_restantes()})")
+            print(f"Error ! Impossible to move a car from {D.name} (possible : {D.can_remove_car(task.car_type,1) or task.fct_d_area=='usine'} ; remplissage : {D.filling}) to  {F.name} (possible : {F.can_add_car(task.car_type,1) or task.fct_f_area=='entree/sortie_route'} ; places disponibles : {F.nb_places_restantes()})")
 
-        return(self.temps_vecteur[task.d_area][task.f_area])#,task.d_area,task.f_area)
+        return(float(self.temps_vecteur[task.d_area][task.f_area]))
 
     def affichage_remplissage(self):
-        for area_name in self.areas:
-            print(area_name,self.areas[area_name].filling)
+        for area_fct in self.areas:
+            print(str(area_fct) + " :")
+            for area_name in self.areas[area_fct]:
+                print(self.areas[area_fct][area_name].filling)

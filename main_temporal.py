@@ -1,5 +1,6 @@
 from tools import *
 from Jockey_class import *
+from data_from_input import *
 
 #Principe : A partir des contraintes, on effectue une série de tâches pour y répondre -> chaque tâche demande un temps t
 #Sans tenir compte de limites temporelles/matérielles/humaines, on applique toutes ces tâches successives au CLE
@@ -13,91 +14,45 @@ from Jockey_class import *
 
 if __name__ == "__main__":
 
-    #T=24*60
-    T = temps_travail_minutes
-    #Nb_Jockeys=3 #à passer dans data à terme
-    Nb_Jockeys=35
-
-    CLE=CLE_ESSAI_3
-    CLE_Jockey_pool = Jockey_pool(Nb_Jockeys)
-
-    entries=entries_3
-    outs=outs_3
-    in_ateliers=in_ateliers_3
-    out_ateliers=out_ateliers_3
-    
+    CLE=CLE(input_areas,given_temps_vecteurs)
+    CLE_Jockey_pool = Jockey_pool(given_nb_jockey)
 
     #régime de fonctionnement temporel
 
-    to_do_in=[]
-    to_do_in_atelier=[]
-    to_do_out=[]
-    to_do_out_atelier=[]
+    to_do=[]
     late=[]
 
-    
+    for m in liste_temps:
+        
+        for constraint in constraints_list:
+            if constraint.departure_time <= m:
+                to_do.append(constraint)
+                constraints_list.remove(constraint)
 
-    for m in range(T):
-        for constraint in entries:
-            if constraint.out_date <= m:
-                to_do_in.append(constraint)
-                entries.remove(constraint)
-        
-        for constraint in in_ateliers:
-            if constraint.entry_time <= m:
-                to_do_in_atelier.append(constraint)
-                in_ateliers.remove(constraint)
-        
-        for constraint in out_ateliers:
-            if constraint.out_time <= m:
-                to_do_out_atelier.append(constraint)
-                out_ateliers.remove(constraint)
-        
-        for constraint in outs:
-            if constraint.outtime_min <= m:
-                to_do_out.append(constraint)
-                outs.remove(constraint)
-            
-        #
-        
-        
-        for constraint in to_do_in:
-            if CLE.give_take_in_order_temporel(constraint.entry_area,constraint.model,m)!=False and CLE_Jockey_pool.dispo():
-                a=CLE.apply_task(CLE.give_take_in_order_temporel(constraint.entry_area,constraint.model,m))
-                CLE_Jockey_pool.working(a)
-                to_do_in.remove(constraint)
-        
-        for constraint in to_do_in_atelier:
-            if CLE.give_take_out_order_temporel(constraint.area_atelier,constraint.model,m)!=False and CLE_Jockey_pool.dispo():
-                a=CLE.apply_task(CLE.give_take_out_order_temporel(constraint.area_atelier,constraint.model,m))
-                CLE_Jockey_pool.working(a)
-                to_do_in_atelier.remove(constraint)
-        
-        for constraint in to_do_out_atelier:
-            if CLE.give_take_in_order_temporel(constraint.area_atelier,constraint.model,m)!=False and CLE_Jockey_pool.dispo():
-                a=CLE.apply_task(CLE.give_take_in_order_temporel(constraint.area_atelier,constraint.model,m))
-                CLE_Jockey_pool.working(a)
-                to_do_out_atelier.remove(constraint)
-        
-        for constraint in to_do_out:
-            if CLE.give_take_out_order_temporel(constraint.out_area,constraint.model,m)!=False and CLE_Jockey_pool.dispo():
-                a=CLE.apply_task(CLE.give_take_out_order_temporel(constraint.out_area,constraint.model,m))
-                CLE_Jockey_pool.working(a)
-                if m>constraint.outtime_max:
-                    late.append(m-constraint.outtime_max)
-                to_do_out.remove(constraint)
+        for constraint in to_do:
+            order=CLE.give_order(constraint)
+            if order!=False and CLE_Jockey_pool.dispo():
+                
+                if m>constraint.latest_possible_arrival_time:
+                    late.append(m-constraint.latest_possible_arrival_time)
+
+                else :
+                    order_time=CLE.apply_task(order)
+                    CLE_Jockey_pool.working(order_time)
+                
+                to_do.remove(constraint)
         
         CLE_Jockey_pool.refresh()
 
     CLE.affichage_remplissage()
-    print(CLE.working_time)
     
-    print("Nombre d'entrées non faites "+str(len(to_do_in)))
-    print("Nombre d'entrées_atelier non faites "+str(len(to_do_in_atelier)))
-    print("Nombre de sorties non faites "+str(len(to_do_out)))
-    print("Nombre de sorties_atelier non faites "+str(len(to_do_out_atelier)))
+    print("Temps total travaillé, en minutes : "+str(CLE.working_time))
+    print("Temps total travaillé, en heures : "+str(CLE.working_time/60))
+    
+    print("Nombre de tâches toujours en attente à la fin de la journée = "+str(len(to_do)))
     
     if late!=[]:
-        print(sum(late)/len(late))
+        print("Nombre de tâche en retards pendant la journée = "+str(len(late)))
+        print("Retard moyen = "+str(sum(late)/len(late)))
     else :
-        print('pas de retard')
+        print('Pas de retard')
