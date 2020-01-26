@@ -17,8 +17,14 @@ if __name__ == "__main__":
     results=[]
     
     for nb_jockey in given_nb_jockey :
-    
-        CLE_working=CLE(input_areas,given_temps_vecteurs)
+        
+        given_zones = give_zone()
+        
+        input_areas_working= [ ( Area(x[0],int(x[2]),{"renault": int(x[3]) } ), x[1] ) for x in given_zones ]
+        
+        CLE_working=CLE(input_areas_working,given_temps_vecteurs)
+
+        
         CLE_Jockey_pool = Jockey_pool(nb_jockey)
         constraints_working=constraints_list.copy()
         print(len(constraints_working))
@@ -67,5 +73,5 @@ if __name__ == "__main__":
             print('Pas de retard')
             avg_late=0
         
-        results.append([str(nb_jockey), str(len(to_do)), str(len(late)), str(avg_late)])
+        results.append([str(nb_jockey), str(len(to_do)), str(len(late)), str(avg_late), str(CLE_working.working_time)])
     give_resultat(results)

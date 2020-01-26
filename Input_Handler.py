@@ -35,8 +35,8 @@ def give_organisation():
     
 def give_resultat(results):
     file = open("results.csv","w")
-    file.write('Nombre de jockeys;Nombre de tâche toujours en attente;Nombre de tâches en retard;Retard moyen \n')
+    file.write('Nombre de jockeys;Nombre de tâche toujours en attente;Nombre de tâches en retard;Retard moyen; Temps travaillé (min) \n')
     for result in results:
-        file.write(result[0] + ";" + result[1] + ";" + result[2] + ";" + result[3] + "\n")
+        file.write(result[0] + ";" + result[1] + ";" + result[2] + ";" + result[3] + ";" + result[4] + "\n")
     
     file.close()
