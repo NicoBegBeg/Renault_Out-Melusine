@@ -13,8 +13,6 @@ class CLE:
             else :
                 print('Erreur : la fonction "+str(area[1])+" n_est pas dans la liste "stock","atelier","usine","entree/sortie_route"')
         
-        print(self.areas)
-        
         self.temps_vecteur=temps_vecteur
         self.working_time=0
 
@@ -32,13 +30,14 @@ class CLE:
             area=self.areas[constraint.arrival_fonction_area][area_name]
             if (area.can_add_car(constraint.model,1) or constraint.arrival_fonction_area=="entree/sortie_route"):
                 possible_arrival_area.append(area)
+
         
         min=10**5
         id_d_min=-1
         id_a_min=-1
         
         for a_d in possible_departure_area:
-            for a_a in possible_departure_area:
+            for a_a in possible_arrival_area:
                 id_d=a_d.name
                 id_a=a_a.name
                 if float(self.temps_vecteur[id_d][id_a])<min:
@@ -47,7 +46,7 @@ class CLE:
                     min=float(self.temps_vecteur[id_d][id_a])
         
         if id_d_min!=-1:
-            return(Task(constraint.departure_fonction_area,id_d_min,constraint.departure_fonction_area,id_a_min,constraint.model))
+            return(Task(constraint.departure_fonction_area,id_d_min,constraint.arrival_fonction_area,id_a_min,constraint.model))
         else:
             return(False)
 
