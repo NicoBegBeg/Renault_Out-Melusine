@@ -9,15 +9,15 @@ input_areas= [ ( Area(x[0],int(x[2]),{"renault": int(x[3]) } ), x[1] ) for x in 
 
 given_organisation = give_organisation()
 
-given_nb_jockey = int(given_organisation[0])
+given_nb_jockey = [int(given_organisation[0])] + [i+1 for i in range(int(given_organisation[0]),int(given_organisation[1]))]
 
-given_heure_ouverture = int(given_organisation[1])
-given_heure_fermeture = int(given_organisation[2])
+given_heure_ouverture = int(given_organisation[2])
+given_heure_fermeture = int(given_organisation[3])
 
-given_temps_dechargement_camions = int(given_organisation[3])
-given_temps_chargement_camions = int(given_organisation[4])
-given_temps_deplacement_atelier = int(given_organisation[5])
-given_temps_deplacement_interne = int(given_organisation[6])
+given_temps_dechargement_camions = int(given_organisation[4])
+given_temps_chargement_camions = int(given_organisation[5])
+given_temps_deplacement_atelier = int(given_organisation[6])
+given_temps_deplacement_interne = int(given_organisation[7])
 
 given_temps_vecteurs = give_temps_vecteurs()
 

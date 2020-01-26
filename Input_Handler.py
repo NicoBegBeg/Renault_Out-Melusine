@@ -32,3 +32,11 @@ def give_organisation():
     for line in file:
         res.append([x.replace('\n','') for x in line.split(";")])
     return [x[1] for x in res]
+    
+def give_resultat(results):
+    file = open("results.csv","w")
+    file.write('Nombre de jockeys;Nombre de tâche toujours en attente;Nombre de tâches en retard;Retard moyen \n')
+    for result in results:
+        file.write(result[0] + ";" + result[1] + ";" + result[2] + ";" + result[3] + "\n")
+    
+    file.close()
